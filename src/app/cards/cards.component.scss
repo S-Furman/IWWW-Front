@@ -1,9 +1,15 @@
 .card {
-  width: 30%;
-  margin: 30px auto;
+  display: inline-block;
+  margin: 20px 2.5%;
+  width: 45%;
 }
 
 button {
   display: block;
   margin: auto;
+}
+
+header {
+  display: flex;
+  justify-content: center;
 }

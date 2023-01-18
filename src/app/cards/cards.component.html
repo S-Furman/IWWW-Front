@@ -1,6 +1,7 @@
 <main>
-  <div *ngFor="let address of addresses">
-    <mat-card class="card">
+  <header class="mat-h1">Dodane adresy</header>
+  <div *ngFor="let address of addresses" class="card">
+    <mat-card>
       <mat-card-header>
         <mat-card-title>
           {{address.country}} {{address.city}}
