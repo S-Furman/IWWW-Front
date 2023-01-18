@@ -12,15 +12,15 @@ export class AddressService {
   constructor(private http: HttpClient) { }
 
   getAddresses() {
-    return this.http.get<Address[]>('http://localhost:9090/api/addresses');
+    return this.http.get<Address[]>('https://iwww-backend.herokuapp.com/api/addresses');
   }
 
   addAddress(address: Address) {
-    return this.http.post('http://localhost:9090/api/addresses', address);
+    return this.http.post('https://iwww-backend.herokuapp.com/api/addresses', address);
   }
 
   deleteAddress(id: number) {
-    return this.http.delete('http://localhost:9090/api/addresses/' + id);
+    return this.http.delete('https://iwww-backend.herokuapp.com/api/addresses/' + id);
   }
 
   updateAddressesList() {
