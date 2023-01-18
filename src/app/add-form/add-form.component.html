@@ -1,0 +1,39 @@
+<form [formGroup]="address" (ngSubmit)="onSubmit()">
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Imię</mat-label>
+      <input formControlName="firstName" matInput>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Nazwisko</mat-label>
+      <input formControlName="lastName" matInput >
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Ulica</mat-label>
+      <input formControlName="street" matInput>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Numer</mat-label>
+      <input formControlName="number" type="number" matInput >
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Miasto</mat-label>
+      <input formControlName="city" matInput >
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Kraj</mat-label>
+      <mat-select formControlName="country">
+        <mat-option value="Polska">Polska</mat-option>
+        <mat-option value="Niemcy">Niemcy</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <button mat-raised-button color="primary">Dodaj</button>
+    <button mat-raised-button color="warn">Wyczyść</button>
+  </div>
+</form>
