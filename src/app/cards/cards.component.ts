@@ -20,6 +20,8 @@ export class CardsComponent implements OnInit {
   }
 
   deleteAddress(id: number) {
-    this.addressService.deleteAddress(id).subscribe();
+    this.addressService.deleteAddress(id).subscribe(() => {
+      this.addressService.getAddresses().subscribe(addresses => this.addresses = addresses);
+    });
   }
 }
