@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AddressService} from "../address.service";
 import {Address} from "../models/address";
 
@@ -13,10 +13,13 @@ export class CardsComponent implements OnInit {
 
   ngOnInit(): void {
     this.addressService.getAddresses().subscribe(addresses => this.addresses = addresses);
+
+    this.addressService.updateCards.subscribe(() => {
+      this.addressService.getAddresses().subscribe(addresses => this.addresses = addresses);
+    })
   }
 
   deleteAddress(id: number) {
     this.addressService.deleteAddress(id).subscribe();
   }
-
 }

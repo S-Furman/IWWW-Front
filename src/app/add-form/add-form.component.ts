@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {AddressService} from "../address.service";
 
@@ -7,7 +7,7 @@ import {AddressService} from "../address.service";
   templateUrl: './add-form.component.html',
   styleUrls: ['./add-form.component.scss']
 })
-export class AddFormComponent implements OnInit {
+export class AddFormComponent {
   address = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
@@ -19,15 +19,10 @@ export class AddFormComponent implements OnInit {
 
   constructor(private addressService: AddressService) { }
 
-  ngOnInit(): void {
-    this.addressService.getAddresses().subscribe(addresses => {
-      console.log(addresses);
-    })
-  }
-
   onSubmit() {
     this.addressService.addAddress(this.address.getRawValue()).subscribe(() => {
       this.address.reset();
+      this.addressService.updateAddressesList();
     });
   }
 
