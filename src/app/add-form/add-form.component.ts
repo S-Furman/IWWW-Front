@@ -26,7 +26,9 @@ export class AddFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.addressService.addAddress(this.address.getRawValue()).subscribe(post => console.log(post));
+    this.addressService.addAddress(this.address.getRawValue()).subscribe(() => {
+      this.address.reset();
+    });
   }
 
   resetForm() {
