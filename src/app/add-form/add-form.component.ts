@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Component, ViewChild} from '@angular/core';
+import {FormControl, FormGroup, FormGroupDirective, Validators} from "@angular/forms";
 import {AddressService} from "../address.service";
 
 @Component({
@@ -17,19 +17,20 @@ export class AddFormComponent {
     country: new FormControl('', [Validators.required])
   })
 
+  @ViewChild(FormGroupDirective) form!: FormGroupDirective;
   constructor(private addressService: AddressService) { }
 
   onSubmit() {
     if (this.address.valid) {
       this.addressService.addAddress(this.address.getRawValue()).subscribe(() => {
-        this.address.reset();
+        this.form.resetForm();
         this.addressService.updateAddressesList();
       });
     }
   }
 
   resetForm() {
-    this.address.reset();
+    this.form.resetForm();
   }
 
 }
