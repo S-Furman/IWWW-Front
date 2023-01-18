@@ -16,6 +16,7 @@ export class AddFormComponent implements OnInit {
     city: new FormControl(''),
     country: new FormControl('')
   })
+
   constructor(private addressService: AddressService) { }
 
   ngOnInit(): void {
@@ -26,7 +27,10 @@ export class AddFormComponent implements OnInit {
 
   onSubmit() {
     this.addressService.addAddress(this.address.getRawValue()).subscribe(post => console.log(post));
-    // console.log(this.address.getRawValue());
+  }
+
+  resetForm() {
+    this.address.reset();
   }
 
 }
